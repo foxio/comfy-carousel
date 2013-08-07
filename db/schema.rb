@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 1) do
+ActiveRecord::Schema.define(:version => 20130807233741) do
 
   create_table "carousel_carousels", :force => true do |t|
     t.string   "label",      :null => false
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(:version => 1) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.integer  "position",          :default => 0,     :null => false
-    t.boolean  "disabled",          :default => false
-    t.boolean  "remote",            :default => false
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
+    t.boolean  "remote",            :default => false
+    t.boolean  "disabled",          :default => false
   end
 
   add_index "carousel_slides", ["carousel_id", "position"], :name => "index_carousel_slides_on_carousel_id_and_position"

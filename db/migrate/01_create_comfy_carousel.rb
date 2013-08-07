@@ -18,8 +18,6 @@ class CreateComfyCarousel < ActiveRecord::Migration
       t.string  :file_content_type
       t.integer :file_file_size
       t.integer :position,    :null => false, :default => 0
-      t.boolean :disabled, default: false
-      t.boolean :remote,   default: false
       t.timestamps
     end
     add_index :carousel_slides, [:carousel_id, :position]
