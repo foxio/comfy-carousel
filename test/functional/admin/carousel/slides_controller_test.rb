@@ -117,5 +117,35 @@ class Admin::Carousel::SlidesControllerTest < ActionController::TestCase
     assert_equal 1, slide_one.position
     assert_equal 0, slide_two.position
   end
+  
+  def test_disabled
+    carousel = carousel_carousels(:default)
+    slide = carousel_slides(:default)
+    
+    put :update, :carousel_id => carousel, :id => slide, :slide => {
+      :disabled => true
+    }
+    assert_response :redirect
+    assert_redirected_to :action => :edit, :id => slide
+    assert_equal 'Slide updated', flash[:notice]
+
+    slide.reload
+    assert_equal true, slide.disabled
+  end
+
+  def test_remote
+    carousel = carousel_carousels(:default)
+    slide = carousel_slides(:default)
+    
+    put :update, :carousel_id => carousel, :id => slide, :slide => {
+      :remote => true
+    }
+    assert_response :redirect
+    assert_redirected_to :action => :edit, :id => slide
+    assert_equal 'Slide updated', flash[:notice]
+
+    slide.reload
+    assert_equal true, slide.remote
+  end
 
 end

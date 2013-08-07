@@ -1,6 +1,12 @@
 <%= form.text_field :label %>
 <%= form.text_area :content %>
 <%= form.text_field :url %>
+<label> Do you want this url to open in a new tab/window? </label>
+<%= form.check_box :remote %>
+
+<label> Temporarily disable this slide </label>
+<%= form.check_box :disabled %>
+
 
 <% if @slide.file? && !@slide.new_record? %>
   <%= form.simple_field 'Current Image' do %>
