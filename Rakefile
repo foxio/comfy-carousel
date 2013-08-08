@@ -13,7 +13,7 @@ begin
     gem.summary     = 'ComfyCarousel is a carousel engine for Rails 3.1+ apps (and ComfortableMexicanSofa)'
     gem.description = ''
     gem.email       = 'oleg@twg.ca'
-    gem.version     = '0.0.6'
+    gem.version     = '0.0.7'
     gem.authors     = ['Oleg Khabarov', 'The Working Group Inc.']
   end
   Jeweler::GemcutterTasks.new
