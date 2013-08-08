@@ -8,16 +8,15 @@ module Comfy
       source_root File.expand_path('../../../../..', __FILE__) 
       
       def generate_migration
+        migrations = %w(create_comfy_carousel add_remote_to_slides add_disabled_to_slides)
         destination   = File.expand_path('db/migrate/01_create_comfy_carousel.rb', self.destination_root)
         migration_dir = File.dirname(destination)
-        destination   = self.class.migration_exists?(migration_dir, 'create_comfy_carousel')
-        
-        if destination
-          puts "\e[0m\e[31mFound existing create_comfy_carousel.rb migration. Remove it if you want to regenerate.\e[0m"
-        else
-          migration_template 'db/migrate/01_create_comfy_carousel.rb', 'db/migrate/create_comfy_carousel.rb'
-          migration_template 'db/migrate/02_add_remote_to_slides.rb', 'db/migrate/add_remote_to_slides.rb'
-          migration_template 'db/migrate/03_add_disabled_to_slides.rb', 'db/migrate/add_disabled_to_slides.rb'
+        migrations.each_with_index do |migr, i|
+          if self.class.migration_exists? migration_dir, migr
+            puts "\e[0m\e[31mFound existing #{migr} migration, remove if you want to regenerate"
+          else
+            migration_template "db/migrate/0#{i}_#{migr}.rb', 'db/migrate/#{migr}.rb"
+          end
         end
       end
       

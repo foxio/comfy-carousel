@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Oleg Khabarov", "The Working Group Inc."]
-  s.date = "2012-02-08"
+  s.date = "2013-08-08"
   s.description = ""
   s.email = "oleg@twg.ca"
   s.extra_rdoc_files = [
@@ -55,6 +55,8 @@ Gem::Specification.new do |s|
     "config/locales/en.yml",
     "config/routes.rb",
     "db/migrate/01_create_comfy_carousel.rb",
+    "db/migrate/02_add_remote_to_slides.rb",
+    "db/migrate/03_add_disabled_to_slides.rb",
     "db/schema.rb",
     "doc/README_FOR_APP",
     "lib/comfy_carousel.rb",
@@ -88,25 +90,25 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/comfy/comfy_carousel"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "2.0.5"
   s.summary = "ComfyCarousel is a carousel engine for Rails 3.1+ apps (and ComfortableMexicanSofa)"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, [">= 3.1.0"])
-      s.add_runtime_dependency(%q<jquery-rails>, [">= 1.0.0"])
-      s.add_runtime_dependency(%q<paperclip>, [">= 2.3.0"])
+      s.add_runtime_dependency(%q<rails>, ["~> 3.1"])
+      s.add_runtime_dependency(%q<jquery-rails>, ["~> 1.0"])
+      s.add_runtime_dependency(%q<paperclip>, ["~> 2.3"])
     else
-      s.add_dependency(%q<rails>, [">= 3.1.0"])
-      s.add_dependency(%q<jquery-rails>, [">= 1.0.0"])
-      s.add_dependency(%q<paperclip>, [">= 2.3.0"])
+      s.add_dependency(%q<rails>, ["~> 3.1"])
+      s.add_dependency(%q<jquery-rails>, ["~> 1.0"])
+      s.add_dependency(%q<paperclip>, ["~> 2.3"])
     end
   else
-    s.add_dependency(%q<rails>, [">= 3.1.0"])
-    s.add_dependency(%q<jquery-rails>, [">= 1.0.0"])
-    s.add_dependency(%q<paperclip>, [">= 2.3.0"])
+    s.add_dependency(%q<rails>, ["~> 3.1"])
+    s.add_dependency(%q<jquery-rails>, ["~> 1.0"])
+    s.add_dependency(%q<paperclip>, ["~> 2.3"])
   end
 end
 
