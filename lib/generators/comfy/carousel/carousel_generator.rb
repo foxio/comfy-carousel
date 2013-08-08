@@ -16,7 +16,7 @@ module Comfy
           if destination
             puts "\e[0m\e[31mFound existing #{migr} migration, remove if you want to regenerate"
           else
-            migration_template "db/migrate/0#{i+1}_#{migr}.rb', 'db/migrate/#{migr}.rb"
+            migration_template "db/migrate/0#{i+1}_#{migr}.rb", "db/migrate/#{migr}.rb"
           end
         end
       end
