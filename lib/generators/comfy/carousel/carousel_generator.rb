@@ -16,8 +16,8 @@ module Comfy
           puts "\e[0m\e[31mFound existing create_comfy_carousel.rb migration. Remove it if you want to regenerate.\e[0m"
         else
           migration_template 'db/migrate/01_create_comfy_carousel.rb', 'db/migrate/create_comfy_carousel.rb'
-          migration_template 'db/migrate/02_add_remote_to_slides.rb', 'db/migrate/create_comfy_carousel.rb'
-          migration_template 'db/migrate/03_add_disabled_to_slides.rb', 'db/migrate/create_comfy_carousel.rb'
+          migration_template 'db/migrate/02_add_remote_to_slides.rb', 'db/migrate/add_remote_to_slides.rb'
+          migration_template 'db/migrate/03_add_disabled_to_slides.rb', 'db/migrate/add_disabled_to_slides.rb'
         end
       end
       
